@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "git-tag",
+    "all-contributors",
+    "first-time-contributor",
+    "released"
+  ],
+  "owner": "KarmaComputing",
+  "repo": "sms-bulk-sending",
+  "name": "KarmaComputing",
+  "email": "chris.j.simpson@live.co.uk"
+}
