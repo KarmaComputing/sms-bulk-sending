@@ -1,0 +1,6 @@
+__pycache__
+*.swp
+.env
+.~lock*
+uploads
+venv
