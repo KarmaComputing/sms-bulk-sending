@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 load_dotenv()  # take environment variables from .env.
 
 FILENAME = os.getenv("FILENAME", None)
+API_KEY = os.getenv("BUDGETSMS_API_KEY")
+SENDER_ID = os.getenv("BUDGETSMS_SENDER_ID")
+
 wb = load_workbook(filename=FILENAME)
 
 rows = list(wb._sheets[0].rows)
@@ -51,3 +54,27 @@ for customer_ref in customers_with_upcoming_jobs:
         if customer_ref == row[0].value:
             # Locate customers phone number
             numbers_to_contact.append(row[PhoneNumberColumn].value)
+message = "Hello, this is a test message from BudgetSMS."
+
+# Send the message to each mobile number
+for number in numbers_to_contact:
+    # url = 'https://api.budgetsms.net/send/?'
+    # params = {
+    #     'username': 'username',
+    #     'userid': 'userid',
+    #     'handle': api_key,
+    #     'from': sender_id,
+    #     'to': number,
+    #     'msg': message
+    # }
+    # response = requests.get(url, params=params)
+    # if response.status_code == 200:
+    #    print(f"Message successfully sent to {number}.")
+    # else:
+    #    print(
+    #        f"Failed to send message to {number}. Response code: {response.status_code}."
+    #    )
+
+    print("The number to contact: " + number)
+
+print("the message to be sent will be " + message)
