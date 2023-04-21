@@ -64,10 +64,10 @@ for number in numbers_to_contact:
     url = "https://api.budgetsms.net/sendsms/"
     params = {
         "username": username,
-        "userid": int(user_id),
+        "userid": user_id,
         "handle": api_key,
         "from": sender_id,
-        "to": int(number),
+        "to": number,
         "msg": message,
     }
     response = requests.get(url, params=params)
