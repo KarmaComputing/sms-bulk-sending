@@ -15,7 +15,7 @@ jobs:
       RUNNING_WITHIN_CI_PIPELINE: 1
       GIT_USERNAME_OR_ORG: chrisjsimpson
       GIT_REPO_NAME: sms-bulk-sending
-      APP_NAME: container-nwjax2y
+      APP_NAME: container-ojho3is
       SSH_CONFIG_FILE: /dev/null
       AMBER_SECRET: ${{ secrets.AMBER_SECRET }}
       DOKKU_SSH_PRIVATE_KEY: ${{ secrets.DOKKU_SSH_PRIVATE_KEY}}
