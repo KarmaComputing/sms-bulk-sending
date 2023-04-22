@@ -10,9 +10,9 @@ api_key = os.getenv("BUDGETSMS_API_KEY")
 user_id = os.getenv("BUDGETSMS_USER_ID")
 sender_id = os.getenv("BUDGETSMS_SENDER_ID")
 username = os.getenv("BUDGETSMS_USERNAME")
+UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 
-
-wb = load_workbook(filename=FILENAME)
+wb = load_workbook(filename=f"{UPLOAD_FOLDER}/{FILENAME}")
 
 rows = list(wb._sheets[0].rows)
 

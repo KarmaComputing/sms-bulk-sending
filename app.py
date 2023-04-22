@@ -2,16 +2,13 @@ from flask import (
     Flask,
     request,
     render_template,
-    send_file,
-    session,
     redirect,
     url_for,
     flash,
 )
-import pandas as pd
 import os
-from functools import wraps
 from dotenv import load_dotenv
+import subprocess
 
 load_dotenv()
 
@@ -20,38 +17,7 @@ UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER", None)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 
-def login_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if "logged-in" not in session:
-            return redirect(url_for("login", next=request.url))
-        return f(*args, **kwargs)
-
-    return decorated_function
-
-
 @app.route("/", methods=["GET", "POST"])
-def login():
-    ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
-    ADMIN_USER = os.getenv("ADMIN_USER")
-    if (
-        request.form.get("password") == ADMIN_PASSWORD
-        and request.form.get("username") == ADMIN_USER
-    ):
-        session["logged-in"] = True
-        return render_template("index.html")
-    elif (
-        request.form.get("password") != ADMIN_PASSWORD
-        and request.form.get("username") != ADMIN_USER
-    ):
-        flash("Try again")
-        return render_template("/login.html")
-    else:
-        return render_template("/login.html")
-
-
-@app.route("/upload", methods=["GET", "POST"])
-@login_required
 def upload():
     if request.method == "POST":
         if "file" not in request.files:
@@ -65,18 +31,33 @@ def upload():
             # Save the uploaded file to the uploads folder
             filename = file.filename
             file.save(os.path.join(UPLOAD_FOLDER, filename))
+            send_sms(filename)
+            return redirect(url_for("download", filename=filename))
 
-            # Read the uploaded file into a pandas dataframe
-            filepath = os.path.join(UPLOAD_FOLDER, filename)
-            df = pd.read_excel(filepath)
+    return render_template("index.html")
 
-            # Display the dataframe in a table on the upload page
-            return render_template("upload.html", table=df.to_html())
 
-    return render_template("upload.html")
+def send_sms(filename=None):
+    if filename is None:
+        return render_template("upload.html")
+    try:
+        subprocess.run(
+            "python3 extract.py",
+            shell=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+    # WIP trying to catch in case of an error doing the script run"
+    except subprocess.CalledProcessError as e:
+        print(e)
+        return render_template("error.html")
+    except Exception as e:
+        print(e)
+        return render_template("error.html")
 
 
 @app.route("/download/<filename>")
-@login_required
-def download(filename):
-    return send_file(filename, as_attachment=True)
+def download(filename=None):
+    if filename is None:
+        return render_template("upload.html")
+    return render_template("finished.html")
