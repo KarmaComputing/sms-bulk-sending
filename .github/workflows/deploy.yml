@@ -15,7 +15,7 @@ jobs:
       RUNNING_WITHIN_CI_PIPELINE: 1
       GIT_USERNAME_OR_ORG: KarmaComputing
       GIT_REPO_NAME: sms-bulk-sending
-      APP_NAME: container-1hhneac
+      APP_NAME: container-3zynbu8
       SSH_CONFIG_FILE: /dev/null
       AMBER_SECRET: ${{ secrets.AMBER_SECRET }}
       DOKKU_SSH_PRIVATE_KEY: ${{ secrets.DOKKU_SSH_PRIVATE_KEY}}
