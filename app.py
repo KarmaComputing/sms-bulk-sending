@@ -8,7 +8,7 @@ from flask import (
 )
 import os
 from dotenv import load_dotenv
-import subprocess
+from utils import send_sms, extract_customer_numbers_from_spreadsheet
 
 load_dotenv()
 
@@ -31,29 +31,12 @@ def upload():
             # Save the uploaded file to the uploads folder
             filename = file.filename
             file.save(os.path.join(UPLOAD_FOLDER, filename))
-            send_sms(filename)
+            numbers_to_contact = extract_customer_numbers_from_spreadsheet(filename)
+            for number in numbers_to_contact:
+                send_sms(number, "Mow your lawn")
             return redirect(url_for("download", filename=filename))
 
     return render_template("index.html")
-
-
-def send_sms(filename=None):
-    if filename is None:
-        return render_template("upload.html")
-    try:
-        subprocess.run(
-            "python3 extract.py",
-            shell=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
-    # WIP trying to catch in case of an error doing the script run"
-    except subprocess.CalledProcessError as e:
-        print(e)
-        return render_template("error.html")
-    except Exception as e:
-        print(e)
-        return render_template("error.html")
 
 
 @app.route("/download/<filename>")

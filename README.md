@@ -21,5 +21,5 @@ pip install -r requirements.txt
 
 ```
 . venv/bin/activate
-python extract.py
+flask --debug run
 ```
