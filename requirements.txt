@@ -1,3 +1,9 @@
 Flask
 python-dotenv
 openpyxl
+pandas
+requests
+SQLAlchemy
+gunicorn
+PyMySQL
+coloredlogs

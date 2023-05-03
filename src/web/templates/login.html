@@ -1,0 +1,23 @@
+<h1>Login</h1>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endwith %}
+<form action="{{ url_for('login') }}" method="POST">
+  <div id="fieldset">
+    <label for="username">Username: <input type="username" name="username" /></label>
+    <label for="password">Password: <input type="password" name="password" /></label>
+    <br />
+    <input type="submit" class="btn btn-primary" value="Login" />
+  </div>
+</form>
+
+

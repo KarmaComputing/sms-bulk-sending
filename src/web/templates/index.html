@@ -1,10 +1,28 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
 
+{% endwith %}
 
-{% block header %}
-    Header
-{% endblock header %}
+<html>
 
-{% block content %}
-    Content
-{% endblock %}
+<head>
+  <meta charset="UTF-8">
+  <title>File Upload Form</title>
+</head>
+
+<body>
+  <h1>File Upload Form</h1>
+  <form action="{{ url_for('index') }}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+  </form>
+</body>
+
+</html>
