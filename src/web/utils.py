@@ -78,5 +78,5 @@ def send_sms(to_number: str, msg: str):
         print(f"Message successfully sent to {to_number}.")
     else:
         print(
-            f"Failed to send message to {to_number}. Response code: {response.status_code} Response text: {response.text}."
+            f"Failed to send message to {to_number}. Response code: {response.status_code} Response text: {response.text}."  # noqa: E501
         )
