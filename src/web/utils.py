@@ -59,7 +59,6 @@ def send_sms(to_number: str, msg: str):
     print("About to send sms")
     # Send the message to each mobile number
     url = "https://api.budgetsms.net/sendsms/"
-    breakpoint()
     BUDGETSMS_API_KEY = os.getenv("BUDGETSMS_API_KEY")
     BUDGETSMS_USER_ID = os.getenv("BUDGETSMS_USER_ID")
     BUDGETSMS_SENDER_ID = os.getenv("BUDGETSMS_SENDER_ID")
@@ -74,9 +73,19 @@ def send_sms(to_number: str, msg: str):
         "msg": msg,
     }
     response = requests.get(url, params=params)
-    if response.status_code == 200 and response.text != "ERR 1001":
+    if response.status_code == 200 and "ERR" not in response.text:
         print(f"Message successfully sent to {to_number}.")
+        return 200
     else:
         print(
             f"Failed to send message to {to_number}. Response code: {response.status_code} Response text: {response.text}."  # noqa: E501
         )
+        return (
+            500,
+            f"Sorry the message couldn't be sent to the phone number: {to_number}",
+        )
+
+
+def allowed_file(filename):
+    ALLOWED_EXTENSIONS = os.getenv("ALLOWED_EXTENSIONS")
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
