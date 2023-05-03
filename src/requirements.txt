@@ -1,10 +1,6 @@
 Flask
 python-dotenv
 openpyxl
-<<<<<<< HEAD
-=======
-pandas
->>>>>>> 934fd02f53aad09ced5f9b962a4c97f36b50a067
 requests
 SQLAlchemy
 gunicorn
