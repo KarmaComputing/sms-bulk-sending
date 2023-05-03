@@ -1,3 +1,20 @@
+# v0.0.10 (Wed May 03 2023)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@joeltejeda](https://github.com/joeltejeda), for all your work!
+
+#### 🐛 Bug Fix
+
+- wip #1 adding env.example and printing the test info [#2](https://github.com/KarmaComputing/sms-bulk-sending/pull/2) ([@joeltejeda](https://github.com/joeltejeda) [@chrisjsimpson](https://github.com/chrisjsimpson))
+
+#### Authors: 2
+
+- [@chrisjsimpson](https://github.com/chrisjsimpson)
+- [@joeltejeda](https://github.com/joeltejeda)
+
+---
+
 # v0.0.9 (Sat Apr 22 2023)
 
 #### ⚠️ Pushed to `main`
