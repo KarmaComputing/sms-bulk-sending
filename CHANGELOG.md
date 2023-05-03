@@ -1,3 +1,15 @@
+# v0.0.15 (Wed May 03 2023)
+
+#### 🐛 Bug Fix
+
+- #7 removed unused pandas module [#9](https://github.com/KarmaComputing/sms-bulk-sending/pull/9) ([@chrisjsimpson](https://github.com/chrisjsimpson))
+
+#### Authors: 1
+
+- [@chrisjsimpson](https://github.com/chrisjsimpson)
+
+---
+
 # v0.0.14 (Wed May 03 2023)
 
 #### 🐛 Bug Fix
