@@ -1,3 +1,15 @@
+# v0.0.14 (Wed May 03 2023)
+
+#### 🐛 Bug Fix
+
+- Fix #7 remove duplicated requirements.txt [#8](https://github.com/KarmaComputing/sms-bulk-sending/pull/8) ([@chrisjsimpson](https://github.com/chrisjsimpson))
+
+#### Authors: 1
+
+- [@chrisjsimpson](https://github.com/chrisjsimpson)
+
+---
+
 # v0.0.13 (Wed May 03 2023)
 
 #### 🐛 Bug Fix
