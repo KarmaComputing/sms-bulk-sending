@@ -1,3 +1,16 @@
+# v0.0.13 (Wed May 03 2023)
+
+#### 🐛 Bug Fix
+
+- Fix #5 add confirmation step before sending SMS [#6](https://github.com/KarmaComputing/sms-bulk-sending/pull/6) ([@chrisjsimpson](https://github.com/chrisjsimpson))
+- wip #5 tidy sms sending errors [#6](https://github.com/KarmaComputing/sms-bulk-sending/pull/6) ([@chrisjsimpson](https://github.com/chrisjsimpson))
+
+#### Authors: 1
+
+- [@chrisjsimpson](https://github.com/chrisjsimpson)
+
+---
+
 # v0.0.12 (Wed May 03 2023)
 
 #### ⚠️ Pushed to `main`
