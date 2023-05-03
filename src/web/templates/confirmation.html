@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Confirmation
+{% endblock title %}
+
+{% block header %}
+<h1>Are you sure you want to send these messages?</h1>
+{% endblock header %}
+
+{% block content %}
+<h2>The following messages will be sent if you press confirm.</h2>
+
+<ul>
+    {% for number in session['numbers_to_contact'] %}
+    <li>{{ number }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('confirm', confirm=confirm) }}">Confirm</a>
+
+{% endblock %}
