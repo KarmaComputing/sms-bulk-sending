@@ -1,3 +1,20 @@
+# v0.0.11 (Wed May 03 2023)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@joeltejeda](https://github.com/joeltejeda), for all your work!
+
+#### 🐛 Bug Fix
+
+- 3 use template inheritance [#4](https://github.com/KarmaComputing/sms-bulk-sending/pull/4) ([@joeltejeda](https://github.com/joeltejeda) [@chrisjsimpson](https://github.com/chrisjsimpson))
+
+#### Authors: 2
+
+- [@chrisjsimpson](https://github.com/chrisjsimpson)
+- [@joeltejeda](https://github.com/joeltejeda)
+
+---
+
 # v0.0.10 (Wed May 03 2023)
 
 :tada: This release contains work from a new contributor! :tada:
