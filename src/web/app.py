@@ -11,7 +11,11 @@ from flask import (
 )
 import os
 from dotenv import load_dotenv
-from utils import send_sms, extract_customer_numbers_from_spreadsheet, allowed_file
+from utils import (
+    send_sms,
+    extract_customer_numbers_from_spreadsheet,
+    allowed_file,
+)
 from werkzeug.utils import secure_filename
 
 
@@ -68,9 +72,14 @@ def index():
                 message_sent = send_sms(number, "Mow your lawn")
                 if message_sent[0] == 500:
                     flash(message_sent[1])
+                    flash("Tip: No spaces permitted in number")
                     flash(
-                        "Tip: Receiver number of the SMS message. No spaces, do not use the + before the international countrycode. Omit the first 0 from the number. Example: 31612345678"
-                    )
+                        "Do not use the + before the international countrycode."  # noqa: E501
+                    )  # noqa: E501
+                    flash(
+                        "Omit the first 0 from the number. Example: 31612345678"  # noqa: E501
+                    )  # noqa: E501
+
                     return render_template("index.html")
             return redirect(url_for("download", filename=filename))
         else:
