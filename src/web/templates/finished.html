@@ -1,12 +1,10 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>The Messages was succesfully sent</title>
-  </head>
-  <body>
-    <h1>Congrats, the form as been sent</h1>
-  </body>
-</html>
 
+{% block header %}
+<h1>Congrats, the form as been sent</h1>
+{% endblock header %}
+
+{% block content %}
+The Messages were sent succesfully
+{% endblock %}
